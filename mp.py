@@ -13,6 +13,11 @@ mc = moonCycle * 24 * 60 * 60
 def cek(cont):
 	thisTime = time.time()
 	
+	#debugging
+	#thisTime = lastNewMoonRecord + (7.3825 * 24 * 60 * 60)#first quarter
+	#thisTime = lastNewMoonRecord + (14.765 * 24 * 60 * 60)#full moon
+	#thisTime = lastNewMoonRecord + (22.1475 * 24 * 60 * 60)#third quarter
+	
 	x = thisTime - lastNewMoonRecord
 
 	moonPhase = (x%mc) / 60 / 60 / 24 / 29.53
@@ -25,7 +30,7 @@ def cek(cont):
 		moon = own.scene.objects[own['moon']]
 		
 		#rot = 45
-		rot = 360 * moonPhase
+		rot = 360 * -moonPhase
 		r = radians(rot)
 		el = Euler((0, 0, r))
 		#print(el)
